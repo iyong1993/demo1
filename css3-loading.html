@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="full-screen" content="yes">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="browsermode" content="application">
+    <meta name="x5-page-mode" content="app">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="assets/reset.css" media="screen">
+</head>
+<style>
+    .load-wrap{
+        /*display: none;*/
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: rgba(0,0,0,.4);
+    }
+    .load-div{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 50px;
+        font-size: 0;
+        /*height: 90px;*/
+    }
+    .circle{
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        /*background-color: #5dd94e;*/
+    }
+    .small-circle{
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        left: 50%;
+        margin-left: -5px;
+        width: 8px;
+        height: 8px;
+        background-color: white;
+        border-radius: 50%;
+        transform-origin: 4px 25px 0;
+        animation: rotate360 2s infinite;
+        opacity: 0;
+    }
+    .circle .small-circle:nth-child(1){
+
+    }
+    .circle .small-circle:nth-child(2){
+        animation-delay:0.15s;
+    }
+    .circle .small-circle:nth-child(3){
+        animation-delay:0.3s;
+    }
+    .circle .small-circle:nth-child(4){
+        animation-delay:0.45s;
+    }
+    .circle .small-circle:nth-child(5){
+        animation-delay:0.6s;
+    }
+    .circle .small-circle:nth-child(6){
+        animation-delay:0.75s;
+    }
+    .circle .small-circle:nth-child(7){
+        animation-delay:0.9s;
+    }
+    .load-text{
+        font-size: 16px;
+        margin-top: 10px;
+        text-align: center;
+        color: white;
+    }
+    @keyframes rotate360 {
+        0% {
+            transform: rotate(60deg);
+            opacity: 1;
+        }
+        20% {
+            opacity: 1;
+        }
+        40% {
+            opacity: 1;
+        }
+        60% {
+            opacity: 0;
+        }
+        80% {
+            opacity: 0;
+        }
+        100% {
+            transform: rotate(420deg);
+            opacity: 0;
+        }
+    }
+</style>
+<body>
+
+<div class="home">
+    <div class="show">点击显示加载框</div>
+</div>
+<div class="load-wrap">
+    <div class="load-div">
+        <div class="circle">
+            <span class="small-circle"></span>
+            <span class="small-circle"></span>
+            <span class="small-circle"></span>
+            <span class="small-circle"></span>
+            <span class="small-circle"></span>
+            <span class="small-circle"></span>
+            <span class="small-circle"></span>
+        </div>
+        <!--<p class="load-text">加载中</p>-->
+    </div>
+</div>
+<script type="text/javascript" src="assets/jquery-3.3.1.min.js"></script>
+<script>
+    $('.show').on('click',function () {
+        $('.load-wrap').show();
+    });
+    $('.load-wrap').on('click',function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        $('.load-wrap').hide();
+    });
+</script>
+</body>
+</html>
